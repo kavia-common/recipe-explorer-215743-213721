@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign In (11:235)</title>
+  <meta name="viewport" content="width=375, initial-scale=1" />
+  <link rel="stylesheet" href="./sign-in-11-235.css" />
+</head>
+<body>
+  <!-- Responsive centered artboard container -->
+  <main class="artboard-wrapper" aria-label="Sign In Screen">
+    <section class="artboard" role="region" aria-labelledby="screen-title">
+      <!-- Status Bar (Top) -->
+      <div class="status-bar" aria-hidden="true">
+        <div class="time">19:27</div>
+        <div class="status-icons">
+          <!-- Using divs to simulate icons as in JSON -->
+          <div class="signal"></div>
+          <div class="wifi"></div>
+          <div class="battery"></div>
+        </div>
+      </div>
+
+      <!-- Title Group -->
+      <header class="title-group">
+        <h1 id="screen-title" class="hello">Hello,</h1>
+        <p class="welcome">Welcome Back!</p>
+      </header>
+
+      <!-- Email Input Field -->
+      <div class="input-group" role="group" aria-labelledby="label-email">
+        <label id="label-email" class="input-label" for="email">Email</label>
+        <div class="input-rect">
+          <input id="email" name="email" type="email" placeholder="Enter Email" aria-describedby="label-email" />
+        </div>
+      </div>
+
+      <!-- Password Input Field -->
+      <div class="input-group" role="group" aria-labelledby="label-password">
+        <label id="label-password" class="input-label" for="password">Enter Password</label>
+        <div class="input-rect password-rect">
+          <input id="password" name="password" type="password" placeholder="Enter Password" aria-describedby="label-password" />
+          <button type="button" class="toggle-password" aria-label="Show password" aria-pressed="false">Show</button>
+        </div>
+      </div>
+
+      <!-- Forgot Password -->
+      <div class="forgot-password">
+        <a href="#" class="forgot-link">Forgot Password?</a>
+      </div>
+
+      <!-- Or sign in with -->
+      <div class="or-line" role="group" aria-label="Other sign in options">
+        <div class="line"></div>
+        <div class="or-text">Or Sign in With</div>
+        <div class="line"></div>
+      </div>
+
+      <!-- Social Buttons -->
+      <div class="social-row" role="group" aria-label="Social sign in">
+        <!-- Google Button: uses image paths from JSON (SVG under assets/figmaimages) -->
+        <button type="button" class="social-btn google" aria-label="Sign in with Google">
+          <img class="social-bg" src="/assets/figmaimages/figma_image_13_36.svg" alt="" />
+          <img class="social-icon" src="/assets/figmaimages/figma_image_13_48.svg" alt="Google icon" />
+        </button>
+
+        <!-- Facebook Button: no explicit rect image path; styled via CSS; icon path from JSON -->
+        <button type="button" class="social-btn facebook" aria-label="Sign in with Facebook">
+          <span class="social-bg-fb" aria-hidden="true"></span>
+          <img class="social-icon" src="/assets/figmaimages/figma_image_13_58.svg" alt="Facebook icon" />
+        </button>
+      </div>
+
+      <!-- Big Sign In Button with right arrow icon -->
+      <button type="button" class="primary-btn" aria-label="Sign In">
+        <span class="primary-label">Sign In</span>
+        <img class="arrow-icon" src="/assets/figmaimages/figma_image_54_668_53_625.svg" alt="" />
+      </button>
+
+      <!-- Bottom Home Indicator -->
+      <div class="home-indicator" aria-hidden="true">
+        <div class="home-line"></div>
+      </div>
+
+      <!-- Bottom Sign-up prompt -->
+      <p class="signup-text">Don’t have an account? <a href="#" class="signup-link">Sign up</a></p>
+    </section>
+  </main>
+
+  <script src="./sign-in-11-235.js"></script>
+</body>
+</html>

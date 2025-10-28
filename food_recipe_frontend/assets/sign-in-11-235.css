@@ -1,0 +1,303 @@
+:root {
+  /* Base palette: JSON indicates light background (color_ffffff) */
+  --bg: #ffffff;
+  --text-primary: #0f172a; /* neutral dark for headings */
+  --text-secondary: #64748b; /* muted for placeholders/secondary */
+  --accent: #2563eb; /* primary button guess based on style guide */
+  --line: #e5e7eb; /* divider lines */
+  --input-border: #e5e7eb;
+  --input-bg: #ffffff;
+  --shadow-sm: 0px 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0px 8px 24px rgba(0,0,0,0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+/* Centered artboard presentation */
+html, body {
+  height: 100%;
+  background: #f3f4f6;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-primary);
+}
+.artboard-wrapper {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.artboard {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  background: var(--bg);
+  box-shadow: var(--shadow-md);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* Status bar (11:71) at y:-430 height 44 -> place at top */
+.status-bar {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+.status-bar .time {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.status-bar .status-icons {
+  display: flex;
+  gap: 8px;
+}
+.status-bar .status-icons > div {
+  width: 18px;
+  height: 12px;
+  background: #111827;
+  border-radius: 2px;
+}
+
+/* Title group (13:110) at y:-336 approx -> visual placement ~ top margin */
+.title-group {
+  position: absolute;
+  left: 30px; /* 456 - 426 = 30 from JSON frame offset */
+  top: 94px;  /* derived so that internal text matches y:-336 -> 44 top + ~50 spacing */
+}
+.hello {
+  margin: 0;
+  font-size: 34px; /* height ~45 */
+  line-height: 45px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.welcome {
+  margin: 6px 0 0 0;
+  font-size: 20px; /* height ~30 */
+  line-height: 30px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Input fields (30:585 & 30:590) */
+.input-group {
+  position: absolute;
+  left: 30px; /* 456-426 */
+  width: 315px;
+}
+.input-group:nth-of-type(1) { /* Email group */
+  top: 226px; /* aligns rectangle y:-178 => within artboard; tuned for layout */
+}
+.input-group:nth-of-type(2) { /* Password group */
+  top: 337px;
+}
+.input-label {
+  display: block;
+  margin: 0 0 8px 0;
+  font-size: 16px; /* label 21 high */
+  line-height: 21px;
+  font-weight: 600;
+}
+.input-rect {
+  height: 55px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+.input-rect input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+.input-rect input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Password toggle */
+.password-rect {
+  position: relative;
+}
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Forgot password (12:91) at y:8 from JSON => below password by ~16px */
+.forgot-password {
+  position: absolute;
+  left: 40px; /* 466-426 */
+  top: 433px;
+}
+.forgot-link {
+  font-size: 14px; /* height 17 */
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Or sign in with line (12:139 group) at y:130 -> place between inputs and socials */
+.or-line {
+  position: absolute;
+  left: 90px; /* 516-426 = 90 */
+  top: 555px; /* visually placed; JSON shows 130 in frame space */
+  width: 195px;
+  height: 17px;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  align-items: center;
+  column-gap: 14px;
+}
+.or-line .line {
+  height: 1px;
+  background: var(--line);
+}
+.or-line .or-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Social buttons row: Google at (557,167), Facebook at (626,167) -> convert to local lefts 131 & 200 */
+.social-row {
+  position: absolute;
+  left: 131px; /* 557-426 */
+  top: 592px;  /* 167 + offset -> visual alignment after divider */
+  display: flex;
+  gap: 25px; /* 626-557=69; but buttons are 44 each; center spacing tuned */
+}
+.social-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+.social-btn .social-bg {
+  position: absolute;
+  inset: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.social-btn .social-bg-fb {
+  position: absolute;
+  inset: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+.social-btn .social-icon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+/* Primary button (54:668), at (456,50), size 315x60 */
+.primary-btn {
+  position: absolute;
+  left: 30px;  /* 456-426 */
+  top: 650px;  /* visually aligned relative to other elements */
+  width: 315px;
+  height: 60px;
+  border: none;
+  border-radius: 16px;
+  background: var(--accent);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 18px; /* label height 24 */
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37,99,235,0.28);
+}
+.primary-btn:active {
+  transform: translateY(0);
+}
+.primary-btn .arrow-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Bottom home indicator (42:614) at y:348 height 34 within artboard bottom */
+.home-indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+}
+.home-line {
+  width: 135px;
+  height: 5px;
+  border-radius: 2.5px;
+  background: #e5e7eb;
+}
+
+/* Bottom signup prompt (13:67) at y:266 -> placed just above home indicator */
+.signup-text {
+  position: absolute;
+  left: 150px; /* center ~ (375-177)/2 ≈ 99; JSON x=525 -> aligned; tune for center */
+  bottom: 48px;
+  transform: translateX(-50%);
+  width: 260px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0;
+}
+.signup-text .signup-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Accessibility focus */
+a:focus, button:focus, input:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+/* Ensure crisp rendering within artboard */
+img {
+  display: block;
+}
